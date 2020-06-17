@@ -1,0 +1,11 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: openshift-operators
+commonLabels:
+  app: istio
+  kind: operator
+  master: argocd-application
+
+resources:
+  - subscription.yaml
