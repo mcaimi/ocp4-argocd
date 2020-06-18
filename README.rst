@@ -100,5 +100,9 @@ To install these components, deploy with kustomize:
 
   $ oc apply -k apps/ocp-pipelines
 
-  
+#) KNative Serving and Eventing
+
+.. code:: bash
+
+  $ oc apply -k apps/serverless
 
