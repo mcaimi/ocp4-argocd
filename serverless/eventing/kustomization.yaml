@@ -1,14 +1,12 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
-namespace: argocd
+namespace: knative-eventing
 commonLabels:
   app: knative
-  kind: operator
+  kind: eventing
   master: argocd-application
 
 resources:
-  - project.yaml
-  - operator.yaml
-  - serving.yaml
+  - namespace.yaml
   - eventing.yaml
