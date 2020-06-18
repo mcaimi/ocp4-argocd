@@ -1,0 +1,20 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: knative-operator
+  namespace: argocd
+spec:
+  project: knative-serverless
+  source:
+    repoURL: https://github.com/mcaimi/ocp4-argocd.git
+    targetRevision: HEAD
+    path: serverless/operator
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+
