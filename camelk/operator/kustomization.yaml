@@ -10,3 +10,4 @@ resources:
   - namespace.yaml
   - operatorgroup.yaml
   - subscription.yaml
+  - integration-platform-instance.yaml
