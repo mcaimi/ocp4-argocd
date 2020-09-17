@@ -5,6 +5,5 @@ metadata:
   name: camelk-operatorgroup
   namespace: camelknative
 spec:
-  selector:
-    matchLabels:
-      camelk: "true"
+  targetNamespaces:
+    - ""
