@@ -36,7 +36,7 @@ After a while, the operator will be installed and configured accordingly:
   prometheus-operator-56467cbcbf-lh6xs                        1/1     Running   0          16m
 
 ArgoCD Cluster Deployment
-------------------
+-------------------------
 
 After operators are up and running, deploy the Argo Cluster Manifest and Application Manifests
 
@@ -55,14 +55,26 @@ Deployment of Additional OCP Components with ArgoCD
 
 Additional components can be deployed as ArgoCD Applications by deploying the relevant manifests:
 
+- Local Development Users
 - Elasticsearch
 - Jaeger Tracing
 - Kiali
 - Istio Operator
 - Istio Control Plane
 - Openshift Pipelines Operator (Tekton)
+- Openshift Serverless (KNative)
+- Camel-K
 
 To install these components, deploy with kustomize:
+
+#) Local development users
+
+.. code:: bash
+
+  $ oc apply -k apps/config
+
+This will create an htpasswd-based OAuth provider with two users: a "developer" user with no specific roles granted, and a "localadmin" user with cluster-admin roles.
+Passwords are the same as the username. To modify these users, look inside ocp-config/auth/htpasswd-secret.yaml.
 
 #) Elasticsearch Operator
 
@@ -105,4 +117,10 @@ To install these components, deploy with kustomize:
 .. code:: bash
 
   $ oc apply -k apps/serverless
+
+#) Camel-K
+
+.. code:: bash
+
+  $ oc apply -k apps/camelk
 

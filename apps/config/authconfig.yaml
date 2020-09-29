@@ -1,0 +1,20 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: openshift-auth-config
+  namespace: argocd
+spec:
+  project: openshift-configuration
+  source:
+    repoURL: https://github.com/mcaimi/ocp4-argocd.git
+    targetRevision: HEAD
+    path: ocp-config/auth
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+
