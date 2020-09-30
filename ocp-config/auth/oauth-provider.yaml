@@ -2,11 +2,9 @@ apiVersion: config.openshift.io/v1
 kind: OAuth
 metadata:
   name: cluster
-  annotations:
-    argocd.argoproj.io/sync-options: Prune=false
 spec:
   identityProviders:
-  - name: my_htpasswd_provider
+  - name: crc_htpasswd_provider
     mappingMethod: claim
     type: HTPasswd
     htpasswd:
