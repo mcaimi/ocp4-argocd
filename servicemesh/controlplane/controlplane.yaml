@@ -4,7 +4,7 @@ metadata:
   name: istio-ctlplane
   namespace: istio-system
 spec:
-  version: v1.1
+  version: v2.0
   istio:
     gateways:
       istio-egressgateway:
