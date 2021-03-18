@@ -11,3 +11,4 @@ namespace: istio-system
 resources:
   - namespace.yaml
   - controlplane.yaml
+  - member-roll.yaml
