@@ -1,0 +1,17 @@
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  labels:
+    app.kubernetes.io/name: argocd-controller-server
+    app.kubernetes.io/part-of: argocd
+  name: argocd-controller-server
+  namespace: argocd
+spec:
+  maxReplicas: 3
+  minReplicas: 2
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: argocd-controller-server
+  targetCPUUtilizationPercentage: 50
+
