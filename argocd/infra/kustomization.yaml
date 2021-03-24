@@ -5,6 +5,6 @@ namespace: argocd
 
 resources:
   - argocd-namespace.yaml
+  - argocd-admins-group.yaml
   - argocd-cluster-rolebinding.yaml
   - anyuid-scc.yaml
-  - argocd-admins-group.yaml

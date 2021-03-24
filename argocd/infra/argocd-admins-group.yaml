@@ -2,4 +2,6 @@ apiVersion: user.openshift.io/v1
 kind: Group
 metadata:
   name: argocd-admins
-users: null
+users:
+  - kubeadmin
+  - localadmin
