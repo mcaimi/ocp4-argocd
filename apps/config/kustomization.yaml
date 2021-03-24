@@ -10,3 +10,4 @@ commonLabels:
 resources:
   - project.yaml
   - authconfig.yaml
+  - argocd-config.yaml
