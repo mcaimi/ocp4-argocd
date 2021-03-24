@@ -5,6 +5,7 @@ metadata:
   name: argocd-controller
   namespace: argocd
 spec:
+  version: latest
   applicationInstanceLabelKey: redhat.com/argocd-controller
   usersAnonymousEnabled: false
   ha:
