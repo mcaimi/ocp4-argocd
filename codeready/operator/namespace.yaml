@@ -1,0 +1,7 @@
+---
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: openshift-workspaces
+  labels:
+    redhat.com/crw: "true"

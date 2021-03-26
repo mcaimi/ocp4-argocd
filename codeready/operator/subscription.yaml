@@ -1,0 +1,15 @@
+---
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: codeready-operator
+  namespace: openshift-workspaces
+  annotations:
+    olm.operatorGroup: codeready-operatorgroup
+spec:
+  channel: "latest"
+  installPlanApproval: "Automatic"
+  source: "redhat-operators"
+  sourceNamespace: "openshift-marketplace"
+  name: "codeready-workspaces"
+
