@@ -1,0 +1,20 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: multi-cluster-hub
+  namespace: argocd
+spec:
+  project: advanced-cluster-manager
+  source:
+    repoURL: https://github.com/mcaimi/ocp4-argocd.git
+    targetRevision: HEAD
+    path: acm/clusterhub
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+
