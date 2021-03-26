@@ -1,0 +1,7 @@
+---
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: openshift-advanced-cluster-manager
+  labels:
+    redhat.com/acm: "true"
