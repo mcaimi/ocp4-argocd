@@ -3,10 +3,8 @@ kind: Kustomization
 
 commonLabels:
   app: camel-k
-  kind: operator
+  kind: integration-platform
   master: argocd-application
 
 resources:
-  - namespace.yaml
-  - operatorgroup.yaml
-  - subscription.yaml
+  - integration-platform-instance.yaml

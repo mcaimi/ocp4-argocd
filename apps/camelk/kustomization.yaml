@@ -10,3 +10,4 @@ commonLabels:
 resources:
   - project.yaml
   - operator.yaml
+  - platform.yaml
