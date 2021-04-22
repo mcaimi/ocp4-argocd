@@ -169,3 +169,25 @@ Passwords are the same as the username. To modify these users, look inside ocp-c
     $ oc apply -k apps/codeready-cluster
     ```
 
+12. Openshift Logging
+
+  deploy the operator:
+
+  ```bash
+  $ oc apply -k apps/logging-operator
+  ```
+
+  then deploy the logging instance
+
+  ```bash
+  $ oc apply -k apps/logging-instance
+  ```
+
+13. Openshift Cluster Monitoring Configuration
+
+  deploy the configmaps
+
+  ```bash
+  $ oc apply -k apps/monitoring
+  ```
+
