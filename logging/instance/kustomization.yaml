@@ -6,5 +6,12 @@ commonLabels:
   kind: cluster-logging
   master: argocd-application
 
+namespace: openshift-logging
+
+patches:
+  - es-storage.yaml
+  - es-limits.yaml
+  - es-retention.yaml
+
 resources:
   - cluster-logging.yaml

@@ -1,0 +1,16 @@
+apiVersion: logging.openshift.io/v1
+kind: ClusterLogging
+metadata:
+  name: "instance"
+spec:
+  logStore:
+    elasticsearch:
+      resources:
+        requests:
+          memory: "2Gi"
+      proxy:
+        resources:
+          limits:
+            memory: 256Mi
+          requests:
+             memory: 256Mi

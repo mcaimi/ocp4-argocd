@@ -1,0 +1,13 @@
+apiVersion: logging.openshift.io/v1
+kind: ClusterLogging
+metadata:
+  name: "instance"
+spec:
+  logStore:
+    type: "elasticsearch"
+    elasticsearch:
+      nodeCount: 3
+      storage:
+        storageClassName: "gp2"
+        size: 200G
+      redundancyPolicy: "SingleRedundancy"

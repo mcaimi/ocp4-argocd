@@ -1,8 +1,7 @@
-apiVersion: "logging.openshift.io/v1"
-kind: "ClusterLogging"
+apiVersion: logging.openshift.io/v1
+kind: ClusterLogging
 metadata:
   name: "instance"
-  namespace: "openshift-logging"
 spec:
   managementState: "Managed"
   logStore:
@@ -19,7 +18,7 @@ spec:
       storage:
         storageClassName: "default"
         size: 200G
-      resources: 
+      resources:
         requests:
           memory: "8Gi"
       proxy: 
