@@ -4,7 +4,7 @@ metadata:
   name: argocd-cluster-admin
 subjects:
   - kind: ServiceAccount
-    name: argocd-application-controller
+    name: argocd-controller-argocd-application-controller
     namespace: argocd
 roleRef:
   apiGroup: rbac.authorization.k8s.io

@@ -28,6 +28,7 @@ supplementalGroups:
   type: RunAsAny
 users:
 - system:serviceaccount:argocd:argocd-redis-ha
+- system:serviceaccount:argocd:argocd-controller-argocd-redis-ha
 volumes:
 - configMap
 - downwardAPI
