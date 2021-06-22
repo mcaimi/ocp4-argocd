@@ -11,3 +11,4 @@ resources:
   - operatorgroup.yaml
   - subscription.yaml
   - messaging-platform-instance.yaml
+  - messaging-addresses.yaml
