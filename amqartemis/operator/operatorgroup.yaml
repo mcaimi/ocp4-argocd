@@ -1,0 +1,9 @@
+---
+apiVersion: operators.coreos.com/v1
+kind: OperatorGroup
+metadata:
+  name: amq-broker-operatorgroup
+  namespace: amq-broker-operator
+spec:
+  targetNamespaces:
+    - "amq-broker-operator"

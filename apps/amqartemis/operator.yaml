@@ -1,0 +1,20 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: amq-broker-artemis
+  namespace: argocd
+spec:
+  project: amq-broker-artemis
+  source:
+    repoURL: https://github.com/mcaimi/ocp4-argocd.git
+    targetRevision: HEAD
+    path: amqartemis/operator
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+

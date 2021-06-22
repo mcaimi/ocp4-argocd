@@ -1,0 +1,32 @@
+apiVersion: broker.amq.io/v2alpha4
+kind: ActiveMQArtemis
+metadata:
+  name: amq-broker-instance
+  application: amq-broker-cluster
+  namespace: amq-broker-operator
+spec:
+    version: 7.8.1
+    acceptors:
+      - name: main-acceptor
+        protocols: amqp,mqtt,core,openwire
+        port: 5672
+        connectionsAllowed: 500
+        expose: true
+        sslEnabled: false
+    deploymentPlan:
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024M"
+          requests:
+            cpu: "500m"
+            memory: "512M"
+        size: 3
+        jolokiaAgentEnabled: true
+        managementRBACEnabled: true
+        requireLogin: false
+        persistenceEnabled: true
+        storage:
+          size: 2Gi
+        journalType: nio
+        messageMigration: true
