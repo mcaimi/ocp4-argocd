@@ -13,6 +13,9 @@ spec:
         connectionsAllowed: 500
         expose: true
         sslEnabled: false
+    console:
+      expose: true
+      sslEnabled: false
     deploymentPlan:
         resources:
           limits:
@@ -22,6 +25,7 @@ spec:
             cpu: "500m"
             memory: "512M"
         size: 3
+        image: placeholder
         jolokiaAgentEnabled: true
         managementRBACEnabled: true
         requireLogin: false
