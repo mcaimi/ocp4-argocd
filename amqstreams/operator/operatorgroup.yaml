@@ -1,0 +1,9 @@
+---
+apiVersion: operators.coreos.com/v1
+kind: OperatorGroup
+metadata:
+  name: amq-streams-operatorgroup
+  namespace: argo-amq-streams-operator
+spec:
+  targetNamespaces:
+    - "argo-amq-streams-operator"
