@@ -6,9 +6,10 @@ This repo contains manifests and kustomization template to install, maintain and
 
 Installation is managed by Kustomization templates. Openshift 4.3+ is required.
 
-1. Create Namespace
+1. Add ArgoCD catalog source and create Namespace
 
 ```bash
+  $ oc create -n openshift-marketplace -f argocd/argocd-catalog-source.yaml
   $ oc new-project argocd
 ```
 

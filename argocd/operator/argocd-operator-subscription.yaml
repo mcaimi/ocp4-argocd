@@ -4,12 +4,12 @@ kind: Subscription
 metadata:
   name: argocd-operator
   namespace: argocd
-  annotations: 
+  annotations:
     olm.operatorGroup: argocd-operatorgroup
 spec:
-  channel: "alpha" 
+  channel: "alpha"
   installPlanApproval: "Automatic"
-  source: "community-operators" 
+  source: "argocd-catalog"
   sourceNamespace: "openshift-marketplace"
   name: "argocd-operator"
 ---
@@ -18,12 +18,12 @@ kind: Subscription
 metadata:
   name: prometheus-operator
   namespace: argocd
-  annotations: 
+  annotations:
     olm.operatorGroup: argocd-operatorgroup
 spec:
-  channel: "beta" 
+  channel: "beta"
   installPlanApproval: "Automatic"
-  source: "community-operators" 
+  source: "community-operators"
   sourceNamespace: "openshift-marketplace"
   name: "prometheus"
 
