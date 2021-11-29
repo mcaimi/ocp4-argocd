@@ -48,6 +48,54 @@ This will deploy:
 * An "argocd-infra" Application Group
 * The "rbac", "operator" and "cluster" applications to let ArgoCD manage itself.
 
+### Add Managed Namespaces to ArgoCD Application Controller
+
+This ArgoCD Operator Deployment is namespaced: this means that by default it only can operate in its own Namespace (argocd).
+To add managed namespaces to the ArgoCD cluster:
+
+```bash
+  $ argocd cluster add  $(oc config current-context) --in-cluster --system-namespace=argocd --namespace argocd --namespace openshift-monitoring --namespace openshift-user-workload-monitoring --namespace openshift-operators --namespace openshift-logging --namespace argo-amq-streams-operator --upsert
+```
+
+The 'namespace' switch can be used multiple times to add more namespaces, moreover if ArgoCD needs to access Cluster-Level resources, also add '--cluster-resources=true' switch to the above command.
+Once that command completes, the ArgoCD cluster should be able to work on required namespaces:
+
+```bash
+  $ argocd cluster list
+  SERVER                                         NAME                                                                       VERSION  STATUS      MESSAGE
+  https://kubernetes.default.svc (6 namespaces)  openshift-monitoring/api-cluster-0894-sandbox1221-opentlc-com:6443/mcaimi  1.22     Successful
+
+  $ argocd cluster get https://kubernetes.default.svc
+  config:
+    tlsClientConfig:
+      insecure: true
+  connectionState:
+    attemptedAt: "2021-11-26T09:48:32Z"
+    message: ""
+    status: Successful
+  info:
+    applicationsCount: 7
+    cacheInfo:
+      apisCount: 200
+      lastCacheSyncTime: "2021-11-26T09:44:15Z"
+      resourcesCount: 696
+    connectionState:
+      attemptedAt: "2021-11-26T09:48:32Z"
+      message: ""
+      status: Successful
+    serverVersion: "1.22"
+  name: openshift-monitoring/api-cluster-0894-sandbox1221-opentlc-com:6443/mcaimi
+  namespaces:
+  - argocd
+  - openshift-monitoring
+  - openshift-user-workload-monitoring
+  - openshift-operators
+  - openshift-logging
+  - argo-amq-streams-operator
+  server: https://kubernetes.default.svc
+  serverVersion: "1.22"
+```
+
 ## Deployment of Additional OCP Components with ArgoCD
 
 Additional components can be deployed as ArgoCD Applications by deploying the relevant manifests:
