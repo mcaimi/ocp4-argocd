@@ -1,8 +1,0 @@
----
-kind: Namespace
-apiVersion: v1
-metadata:
-  name: argo-amq-streams-operator
-  labels:
-    redhat-operator: "true"
-    redhat-messaging: "amq-streams"

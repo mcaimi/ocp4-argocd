@@ -7,6 +7,4 @@ commonLabels:
   master: argocd-application
 
 resources:
-  - namespace.yaml
-  - operatorgroup.yaml
   - subscription.yaml
