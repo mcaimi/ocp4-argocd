@@ -5,13 +5,14 @@ metadata:
   name: argocd-controller
   namespace: argocd
 spec:
+  applicationSet: {}
   applicationInstanceLabelKey: redhat.com/argocd-controller
   usersAnonymousEnabled: false
   ha:
     enabled: true
   dex:
-    image: quay.io/dexidp/dex
-    version: latest
+    #image: quay.io/dexidp/dex
+    #version: latest
     openShiftOAuth: true
   grafana:
     enabled: true
@@ -26,9 +27,9 @@ spec:
     policy: |
       g, argocd-users, role:readonly
       g, argocd-admins, role:admin
+      g, system:cluster-admins, role:admin
     scopes: '[groups]'
   server:
-    enabled: true
     route:
       enabled: true
     autoscale:
